@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block header %}
+{% include "../elements/navbar.html" %}
+{% endblock header %}
+
+{% block content %}
+
+<div>
+    <main class="mt-24">
+        <div class="container">
+            <div class="h-100 d-flex align-items-center justify-content-center">
+                <div class="card text-center" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Inscription</h5>
+                        {% if form.errors %}
+                        {{ form.errors }}
+                        {% endif %}
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                {{ form.username }}
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="password">
+                                    Mot de passe
+                                </label>
+                                {{ form.password1 }}
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="passwordConfirmation">
+                                    Confirmation
+                                </label>
+                                {{ form.password2 }}
+                            </div>
+                            <div class="mb-3">
+                                <label for="lastname" class="form-label">Lastname</label>
+                                {{ form.last_name }}
+                            </div>
+                            <div class="mb-3">
+                                <label for="firstname" class="form-label">Firstname</label>
+                                {{ form.first_name }}
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+                                {{ form.email }}
+                            </div>
+                            <div class="mb-3">
+                                <label for="Address" class="form-label">Address</label>
+                                {{ form.address }}
+                            </div>
+                            <div class="mb-3">
+                                <label for="Role" class="form-label">Role</label>
+                                {{ form.role }}
+                            </div>
+
+                            <div class="flex items-center justify-between">
+                                <button class="btn btn-primary"
+                                        type="submit">
+                                    S'inscrire
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+{% include "../elements/footer.html" %}
+{% endblock footer %}
