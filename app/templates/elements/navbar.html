@@ -1,9 +1,23 @@
 <nav class="navbar bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/">Accueil</a>
-    <div class="d-flex" role="search">
-      <a class="btn btn-outline-primary" type="submit" href="/login">Sign in</a>
-      <a class="btn btn-primary ms-3" type="submit" href="/register">Sign up</a>
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Accueil</a>
+        <div class="d-flex">
+            {% if user.is_authenticated %}
+
+            <div class="dropdown">
+                <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                   aria-expanded="false">
+                    Gestion du compte
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Profile de {{ user.get_username }}</a></li>
+                    <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                </ul>
+            </div>
+            {% else %}
+            <a class="btn btn-outline-primary" type="submit" href="/login">Sign in</a>
+            <a class="btn btn-primary ms-3" type="submit" href="/register">Sign up</a>
+            {% endif %}
+        </div>
     </div>
-  </div>
 </nav>
