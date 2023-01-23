@@ -12,22 +12,7 @@
             <div class="h-100 d-flex align-items-center justify-content-center">
                 <div class="card text-center" style="width: 18rem;">
                     <div class="card-body">
-                        {% if form.errors %}
-                        <p>Your username and password didn't match. Please try again.</p>
-                        {% endif %}
-
-                        {% if next %}
-                        {% if user.is_authenticated %}
-                        <p>Your account doesn't have access to this page. To proceed,
-                            please login with an account that has access.</p>
-                        {% else %}
-                        <p>Please login to see this page.</p>
-                        {% endif %}
-                        {% endif %}
                         <h5 class="card-title">Sign in</h5>
-                        {% if form.errors %}
-                        {{ form.errors }}
-                        {% endif %}
                         <form method="post">
                             {% csrf_token %}
                             {{ form.as_p }}
