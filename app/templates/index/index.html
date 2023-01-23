@@ -10,6 +10,10 @@
     <main class="mt-24">
         <div class="container">
             <h1 class="text-center">Welcome to library app created with Django Framework</h1>
+
+           {% if user.is_authenticated %}
+             <li>User: {{ user.get_username }}</li>
+           {% endif %}
         </div>
     </main>
 </div>
