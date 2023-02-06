@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block header %}
+{% include "../elements/navbar.html" %}
+{% endblock header %}
+
+{% block content %}
+
+<div>
+    <main class="mt-24">
+        <div class="container">
+            <h1>Liste des groupes de lecture</h1>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for group in groups %}
+                <tr>
+                    <td>{{ group.name }}</td>
+                    <td>{{ group.description }}</td>
+                    <td>{{ group.date }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+{% include "../elements/footer.html" %}
+{% endblock footer %}
