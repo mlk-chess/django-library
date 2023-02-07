@@ -10,12 +10,14 @@
     <main class="mt-24">
         <div class="container">
             <h1>Liste des groupes de lecture</h1>
+            <a class="btn btn-info" href="/group/create">Créer un groupe de lecture</a>
             <table class="table">
                 <thead>
                 <tr>
-                    <th>Nom</th>
+                    <th>Nom du groupe</th>
                     <th>Description</th>
                     <th>Date</th>
+                    <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -24,6 +26,10 @@
                     <td>{{ group.name }}</td>
                     <td>{{ group.description }}</td>
                     <td>{{ group.date }}</td>
+                    <td>
+                        <a href="/group/update/{{group.id}}" class="btn btn-warning">Modifier</a>
+                        <a href="/group/delete/{{group.id}}" class="btn btn-danger">Delete</a>
+                    </td>
                 </tr>
                 {% endfor %}
                 </tbody>
