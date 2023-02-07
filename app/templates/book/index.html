@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block header %}
+{% include "../elements/navbar.html" %}
+{% endblock header %}
+
+{% block content %}
+
+<div>
+    {% if user.is_authenticated %}
+    <main class="mt-24">
+        <div class="container">
+            <h1 class="text-center">Liste des livres</h1>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Auteur</th>
+                    <th>Jaquette</th>
+                    <th>Editeur</th>
+                    <th>Collection</th>
+                    <th>Genre</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for book in books %}
+                <tr>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>
+                        <img src="{{ book.cover.url }}" alt="{{ book.cover.url }}" height="50">
+                    </td>
+                    <td>{{ book.publisher }}</td>
+                    <td>{{ book.series }}</td>
+                    <td>{{ book.genre }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+    {% endif %}
+</div>
+
+{% endblock %}
+
+{% block footer %}
+{% include "../elements/footer.html" %}
+{% endblock footer %}
