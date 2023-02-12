@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import Book
+from django.utils import timezone
+
+from .models import Book, Borrow
 
 
 def book_list(request):
@@ -40,3 +42,13 @@ def book_delete(request, id):
     book = Book.objects.get(pk=id)
     book.delete()
     return redirect('book_list')
+
+
+def late_loans(request):
+    late_books = Book.objects.filter(loan__returned_at__lt=timezone.now(), loan__returned=False)
+    return render(request, 'library/late_loans.html', {'late_books': late_books})
+
+
+def borrow_management(request):
+    borrows = Borrow.objects.all()
+    return render(request, 'library/borrow_management.html', {'borrows': borrows})
