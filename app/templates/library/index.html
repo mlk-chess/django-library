@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block header %}
+{% include "../elements/navbar.html" %}
+{% endblock header %}
+
+{% block content %}
+
+<div>
+    {% if user.is_authenticated %}
+    <main class="mt-24">
+        <div class="container">
+            <h1 class="text-center">Liste des librairies</h1>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Location</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for library in libraries %}
+                <tr>
+                    <td>{{ library.name }}</td>
+                    <td>{{ library.location }}</td>
+                    <td>
+                        <a class="btn btn-info" href="detail/{{ library.id }}">Détails</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+    {% endif %}
+</div>
+
+{% endblock %}
+
+{% block footer %}
+{% include "../elements/footer.html" %}
+{% endblock footer %}

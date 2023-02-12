@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block header %}
+{% include "../elements/navbar.html" %}
+{% endblock header %}
+
+{% block content %}
+<main class="mt-24">
+    <div class="container">
+        <h1 class="text-center">Gestion des emprunts</h1>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Livre</th>
+                <th>Emprunté par</th>
+                <th>Date d'emprunt</th>
+                <th>Date de retour</th>
+                <th>Retard</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for borrow in borrows %}
+            <tr>
+                <td>{{ borrow.book.title }}</td>
+                <td>{{ borrow.borrower.username }}</td>
+                <td>{{ borrow.borrowed_at }}</td>
+                <td>{{ borrow.due_back_at }}</td>
+                <td>
+                    {% if borrow.is_overdue %}
+                    <strong style="color:red;">OUI</strong>
+                    {% else %}
+                    NON
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+
+
+{% endblock %}

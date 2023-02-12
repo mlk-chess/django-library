@@ -1,9 +1,40 @@
 <nav class="navbar bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/">Accueil</a>
-    <div class="d-flex" role="search">
-      <a class="btn btn-outline-info" type="submit" href="/login">Login</a>
-      <a class="btn btn-info ms-3" type="submit" href="/register">Register</a>
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Accueil</a>
+        <div class="d-flex">
+            {% if user.is_authenticated %}
+
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                   aria-expanded="false">
+                    Navigation
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/group">Groupes de lectures</a></li>
+                    <li><a class="dropdown-item" href="/library">Rechercher une librairie</a></li>
+                    <li><a class="dropdown-item" href="/book">Rechercher un livre</a></li>
+                    {% if user.role == "bookseller_role" %}
+                        <li><a class="dropdown-item" href="/book/create">Créer un livre</a></li>
+                        <li><a class="dropdown-item" href="/book/borrows">Gérer les emprunts</a></li>
+                        <li><a class="dropdown-item" href="/book/late-loans">Gérer les retards</a></li>
+                    {% endif %}
+
+                </ul>
+            </div>
+            <div class="dropdown">
+                <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                   aria-expanded="false">
+                    Gestion du compte
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Profile de {{ user.get_username }}</a></li>
+                    <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                </ul>
+            </div>
+            {% else %}
+            <a class="btn btn-outline-primary" type="submit" href="/login">Sign in</a>
+            <a class="btn btn-primary ms-3" type="submit" href="/register">Sign up</a>
+            {% endif %}
+        </div>
     </div>
-  </div>
 </nav>
