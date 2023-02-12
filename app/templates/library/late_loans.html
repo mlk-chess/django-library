@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block header %}
+{% include "../elements/navbar.html" %}
+{% endblock header %}
+
+{% block content %}
+<main class="mt-24">
+    <div class="container">
+        <h1 class="text-center">Livres en retard pour leur retour</h1>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Auteur</th>
+                <th>Date d'emprunt</th>
+                <th>Date de retour prévue</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for book in late_books %}
+            <tr>
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.loan.borrow_date }}</td>
+                <td>{{ book.loan.returned_at }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+{% endblock %}

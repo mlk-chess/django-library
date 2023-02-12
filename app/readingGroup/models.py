@@ -11,7 +11,7 @@ class readingGroup(models.Model):
     date = models.DateField()
     location = models.CharField(max_length=100)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
-    members = models.ManyToManyField(get_user_model())
+    members = models.ManyToManyField(User)
 
     def __str__(self):
         return self.name
