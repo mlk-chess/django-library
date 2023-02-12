@@ -10,7 +10,7 @@
     {% if user.is_authenticated %}
     <main class="mt-24">
         <div class="container">
-            <h1 class="text-center">Création d'un livre</h1>
+            <h1 class="text-center">{% if form.instance.pk %}Modifier{% else %}Créer{% endif %} un livre</h1>
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="form-group">
