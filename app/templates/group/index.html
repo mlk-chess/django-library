@@ -27,8 +27,8 @@
                     <td>{{ group.description }}</td>
                     <td>{{ group.date }}</td>
                     <td>
-                        <a href="/group/update/{{group.id}}" class="btn btn-warning">Modifier</a>
-                        <a href="/group/delete/{{group.id}}" class="btn btn-danger">Delete</a>
+                        <a href="/group/{{group.id}}" class="btn btn-info">Info</a>
+                        <a class="btn btn-primary" href="/group/{{group.id}}/join">Rejoindre ce groupe</a>
                     </td>
                 </tr>
                 {% endfor %}

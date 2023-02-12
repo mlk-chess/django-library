@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block header %}
+{% include "../elements/navbar.html" %}
+{% endblock header %}
+
+{% block content %}
+
+<div>
+    <main class="mt-24">
+        <div class="container">
+            <section>
+                <h1 class="text-center">{{ group.name }}</h1>
+                <h2>Membres inscrits</h2>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Nom d'utilisateur</th>
+                        <th>Prénom</th>
+                        <th>Nom</th>
+                        <th>A rejoint le</th>
+                        <th>Dernière connexion</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        {% for member in members %}
+                        <td>{{ member.username }}</td>
+                        <td>{{ member.first_name }}</td>
+                        <td>{{ member.last_name }}</td>
+                        <td>{{ member.date_joined }}</td>
+                        <td>{{ member.last_login }}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+                <a class="btn btn-primary" href="/group/{{group.id}}/join">Rejoindre ce groupe</a>
+            </section>
+        </div>
+    </main>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+{% include "../elements/footer.html" %}
+{% endblock footer %}

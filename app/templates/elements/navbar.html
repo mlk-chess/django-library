@@ -13,6 +13,12 @@
                     <li><a class="dropdown-item" href="/group">Groupes de lectures</a></li>
                     <li><a class="dropdown-item" href="/library">Rechercher une librairie</a></li>
                     <li><a class="dropdown-item" href="/book">Rechercher un livre</a></li>
+                    {% if user.role == "bookseller_role" %}
+                        <li><a class="dropdown-item" href="/book/create">Créer un livre</a></li>
+                        <li><a class="dropdown-item" href="/book/borrows">Gérer les emprunts</a></li>
+                        <li><a class="dropdown-item" href="/book/late-loans">Gérer les retards</a></li>
+                    {% endif %}
+
                 </ul>
             </div>
             <div class="dropdown">

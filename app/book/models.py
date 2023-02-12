@@ -34,6 +34,5 @@ class Loan(models.Model):
     returned_at = models.DateTimeField(null=True, blank=True)
     returned = models.BooleanField(default=False)
 
-
     def __str__(self):
         return f"{self.borrow.borrower} returned {self.borrow.book} on {self.returned_at}"
