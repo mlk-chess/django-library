@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block header %}
+{% include "../elements/navbar.html" %}
+{% endblock header %}
+
+{% block content %}
+
+<div>
+    <main class="mt-24">
+        <div class="container">
+            <h1>{% if form.instance.pk %}Modifier{% else %}Créer{% endif %} un groupe de lecture</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Enregistrer</button>
+            </form>
+        </div>
+    </main>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+{% include "../elements/footer.html" %}
+{% endblock footer %}
