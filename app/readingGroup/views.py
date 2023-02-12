@@ -28,3 +28,16 @@ def group_update(request, id):
 def group_delete(request, id):
     readingGroup.objects.get(id=id).delete()
     return redirect('/group')
+
+
+def group_details(request, group_id):
+    group = readingGroup.objects.get(id=group_id)
+    members = group.members.all()
+    return render(request, 'group/group_details.html', {'group': group, 'members': members})
+
+
+def join_group(request, group_id):
+    group = readingGroup.objects.get(id=group_id)
+    user = request.user
+    group.members.add(user)
+    return redirect('/group', group_id=group_id)

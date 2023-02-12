@@ -12,7 +12,27 @@
             <h1>{% if form.instance.pk %}Modifier{% else %}Créer{% endif %} un groupe de lecture</h1>
             <form method="post">
                 {% csrf_token %}
-                {{ form.as_p }}
+                {{ form.non_field_errors }}
+                {{ form.name.errors }}
+                <div class="form-group">
+                    {{ form.name.label_tag }}
+                    {{ form.name }}
+                </div>
+                {{ form.description.errors }}
+                <div class="form-group">
+                    {{ form.description.label_tag }}
+                    {{ form.description }}
+                </div>
+                {{ form.date.errors }}
+                <div class="form-group">
+                    {{ form.date.label_tag }}
+                    {{ form.date }}
+                </div>
+                {{ form.book_id.errors }}
+                <div class="form-group">
+                    {{ form.book_id.label_tag }}
+                    {{ form.book_id }}
+                </div>
                 <button type="submit" class="btn btn-primary">Enregistrer</button>
             </form>
         </div>

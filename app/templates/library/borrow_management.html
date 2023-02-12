@@ -19,14 +19,14 @@
             </tr>
             </thead>
             <tbody>
-            {% for loan in loans %}
+            {% for borrow in borrows %}
             <tr>
-                <td>{{ loan.book.title }}</td>
-                <td>{{ loan.borrower.username }}</td>
-                <td>{{ loan.borrowed_at }}</td>
-                <td>{{ loan.due_back }}</td>
+                <td>{{ borrow.book.title }}</td>
+                <td>{{ borrow.borrower.username }}</td>
+                <td>{{ borrow.borrowed_at }}</td>
+                <td>{{ borrow.due_back_at }}</td>
                 <td>
-                    {% if loan.is_overdue %}
+                    {% if borrow.is_overdue %}
                     <strong style="color:red;">OUI</strong>
                     {% else %}
                     NON
