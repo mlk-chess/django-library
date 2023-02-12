@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'index',
     'app',
-    'readingGroup'
+    'readingGroup',
+    'book'
 ]
 
 
