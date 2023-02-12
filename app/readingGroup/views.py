@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
-from .models import Group
+from .models import readingGroup
 from .forms import GroupForm
 
 
 def group_list(request):
-    groups = Group.objects.all()
+    groups = readingGroup.objects.all()
     return render(request, 'group/index.html', {'groups': groups})
 
 
@@ -17,7 +17,7 @@ def group_create(request):
 
 
 def group_update(request, id):
-    group = Group.objects.get(id=id)
+    group = readingGroup.objects.get(id=id)
     form = GroupForm(request.POST or None, instance=group)
     if form.is_valid():
         form.save()
@@ -26,5 +26,5 @@ def group_update(request, id):
 
 
 def group_delete(request, id):
-    Group.objects.get(id=id).delete()
+    readingGroup.objects.get(id=id).delete()
     return redirect('/group')

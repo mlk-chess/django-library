@@ -11,5 +11,6 @@ urlpatterns = [
     path('accounts/profile/', profile, name='profile'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('group/', include('readingGroup.urls')),
-    path('book/', include('book.urls'), name='books')
+    path('book/', include('book.urls'), name='books'),
+    path('library/', include('library.urls'), name='librairies')
 ]

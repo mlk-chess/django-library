@@ -10,26 +10,37 @@
     {% if user.is_authenticated %}
     <main class="mt-24">
         <div class="container">
-            <h1 class="text-center">Liste des livres</h1>
+            <h1 class="text-center">{{library.name}}</h1>
+            <table class="table table-striped">
+                <tbody>
+                <tr>
+                    <th>Location</th>
+                    <td>{{ library.location }}</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h2>Livres disponibles dans cette librairie</h2>
+
             <table class="table table-striped">
                 <thead>
                 <tr>
                     <th>Titre</th>
                     <th>Auteur</th>
                     <th>Jaquette</th>
-                    <th>Editeur</th>
+                    <th>Edition</th>
                     <th>Collection</th>
                     <th>Genre</th>
                 </tr>
                 </thead>
                 <tbody>
-                {% for book in books %}
+                {% for book in library.books.all %}
                 <tr>
                     <td>{{ book.title }}</td>
                     <td>{{ book.author }}</td>
                     <td><img src="/static/{{ book.cover }}" height="100"></td>
                     <td>{{ book.publisher }}</td>
-                    <td>{{ book.series }}</td>
+                    <td>{{ book.collection }}</td>
                     <td>{{ book.genre }}</td>
                 </tr>
                 {% endfor %}
