@@ -37,22 +37,6 @@ Librarians can manage the books and book loans through the Django admin interfac
 
 This project is open to contributions. To contribute, please fork the repository, create a new branch, make your changes, and then create a pull request. All contributions are welcome!
 
-## Screenshots
-
-### Home Page
-![Home Page](screenshots/home.png)
-
-### Book Detail Page
-![Book Detail Page](screenshots/book_detail.png)
-
-### Borrow Book
-![Borrow Book](screenshots/borrow_book.png)
-
-### My Loans Page
-![My Loans Page](screenshots/my_loans.png)
-
-### Admin Interface
-![Admin Interface](screenshots/admin.png)
 
 ## License
 
